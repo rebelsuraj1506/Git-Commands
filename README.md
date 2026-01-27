@@ -131,6 +131,29 @@ We use -u to set upstream means if we want to continuously work on same project 
 
 ---
 
+### 🐙 GitHub CLI (`gh`)
+*Manage GitHub features without leaving the terminal.*
+
+**Authentication:**  
+`gh auth login` # One-time login setup
+
+**Browser Integration:**  
+`gh repo view --web` # Open current repo on GitHub.com
+
+**Repository Management:**  
+`gh repo create [name] --public --source=.` # Create & link repo online
+
+**Pull Requests (PR):**  
+`gh pr list` # List all open PRs  
+`gh pr create` # Create a new PR from current branch  
+`gh pr checkout [number]` # Pull a teammate's PR to your machine
+
+**Actions & Secrets:**  
+`gh run list` # Check CI/CD status  
+`gh secret set [NAME]` # Add encrypted keys for GitHub Actions
+
+---
+
 ## Show Commit History
 - `git log`  
   Show commit history for the currently active branch.
