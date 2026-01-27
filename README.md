@@ -8,8 +8,8 @@ _Must-do: Connects your terminal to your GitHub account (Browser or Token)._
 
 **Auth Status:** 
 `gh auth status`  
- _Verifies which account is currently logged in._
- 
+_Verifies which account is currently logged in._
+
 **Set your global username for commits:**  
 `git config --global user.name "Firstname Lastname"`  
 _Set a name that is identifiable for credit when reviewing version history._
