@@ -2,11 +2,11 @@
 
 ### Configuration
 
-**Auth GitHub CLI:** 
+**Auth GitHub CLI:**  
 `gh auth login`  
 _Must-do: Connects your terminal to your GitHub account (Browser or Token)._
 
-**Auth Status:** 
+**Auth Status:**  
 `gh auth status`  
 _Verifies which account is currently logged in._
 
