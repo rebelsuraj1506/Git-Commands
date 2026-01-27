@@ -2,6 +2,10 @@
 
 ### Configuration
 
+**Auth GitHub CLI:** `gh auth login`  
+_Must-do: Connects your terminal to your GitHub account (Browser or Token)._
+**Auth Status:** `gh auth status`  
+ _Verifies which account is currently logged in._
 **Set your global username for commits:**  
 `git config --global user.name "Firstname Lastname"`  
 _Set a name that is identifiable for credit when reviewing version history._
@@ -39,6 +43,8 @@ _Verify remote:_ `git remote -v`
 
 **Clone an existing remote repository locally:**  
 `git clone <repository-url>`  
+**Clone via GH:** 
+`gh repo clone user/repo`  # Easier: no URL copying needed
 
 ---
 
@@ -131,26 +137,49 @@ We use -u to set upstream means if we want to continuously work on same project 
 
 ---
 
-### 🐙 GitHub CLI (`gh`)
-*Manage GitHub features without leaving the terminal.*
+### 🐙 GitHub CLI (`gh`) - The Power Tools
+*Manage the GitHub **Platform** directly from the terminal.*
 
-**Authentication:**  
-`gh auth login` # One-time login setup
+#### 🔹 Pull Requests (PRs)
+- **Create:** `gh pr create --title "Fix bug" --body "Details here"`
+- **List:** `gh pr list`
+- **Checkout:** `gh pr checkout [number]` # Instantly switches to a teammate's code
+- **Review:** `gh pr view --web` # Opens the PR in your browser
 
-**Browser Integration:**  
-`gh repo view --web` # Open current repo on GitHub.com
+#### 🔹 Repositories
+- **Create Repo:** `gh repo create [name] --public --source=. --remote=upstream`
+- **View Repo:** `gh repo view --web` # Instantly opens the repo homepage
 
-**Repository Management:**  
-`gh repo create [name] --public --source=.` # Create & link repo online
+#### 🔹 Issues & Tasks
+- **List Issues:** `gh issue list`
+- **Create Issue:** `gh issue create --title "S3 timeout error"`
 
-**Pull Requests (PR):**  
-`gh pr list` # List all open PRs  
-`gh pr create` # Create a new PR from current branch  
-`gh pr checkout [number]` # Pull a teammate's PR to your machine
+#### 🔹 Actions, Secrets & Projects
+- **Check CI/CD:** `gh run list` # Check if your GitHub Action builds passed
+- **Watch Progress:** `gh run watch` # Live-stream build logs in your terminal
+- **Set Secrets:** `gh secret set AWS_ACCESS_KEY_ID` # Set backend keys for CI/CD
+- **Kanban Board:** `gh project list` # View your project boards
 
-**Actions & Secrets:**  
-`gh run list` # Check CI/CD status  
-`gh secret set [NAME]` # Add encrypted keys for GitHub Actions
+---
+
+### ⚡ Git vs. GH: Quick Comparison
+| Action | **Git** (Code) | **GH** (Platform) |
+| :--- | :--- | :--- |
+| **Branching** | `git branch new-feature` | `gh pr create` |
+| **Retrieving** | `git pull` | `gh repo clone` |
+| **Checking** | `git log` | `gh run list` |
+
+---
+
+### ⚠️ Troubleshooting Merge Conflicts
+*If `git merge` fails, follow these steps:*
+1. Open the file showing the conflict.
+2. Look for the markers:
+   - `<<<<<<< HEAD` (Your local changes)
+   - `=======` (Divider)
+   - `>>>>>>> branch-name` (Incoming changes)
+3. Edit the file to keep the correct code, remove markers, and save.
+4. Run: `git add .` → `git commit -m "Fixed conflict"` → `git push`.
 
 ---
 
